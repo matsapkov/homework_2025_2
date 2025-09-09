@@ -28,4 +28,20 @@ QUnit.module("Тестируем функцию fibonacciGenerator", function() 
         const fibGen = fibonacciGenerator(10);
         assert.deepEqual([...fibGen], [0, 1, 1, 2, 3, 5, 8, 13, 21, 34], 'n=10 -> корректная последовательность');
     });
+    QUnit.test('Возвращает пусто для строк', function (assert) {
+        const fibGen = fibonacciGenerator('5');
+        assert.deepEqual([...fibGen], [], '"5" -> []');
+    });
+    QUnit.test('Возвращает пусто для boolean', function (assert) {
+        const fibGen = fibonacciGenerator(true);
+        assert.deepEqual([...fibGen], [], 'true -> []');
+    });
+    QUnit.test('Возвращает пусто для null', function (assert) {
+        const fibGen = fibonacciGenerator(null);
+        assert.deepEqual([...fibGen], [], 'null -> []');
+    });
+    QUnit.test('Возвращает пусто для undefined', function (assert) {
+        const fibGen = fibonacciGenerator(undefined);
+        assert.deepEqual([...fibGen], [], 'undefined -> []');
+    });
 });
